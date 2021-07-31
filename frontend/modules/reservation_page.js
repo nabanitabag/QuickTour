@@ -2,14 +2,14 @@ import config from "../conf/index.js";
 
 //Implementation of fetch call to fetch all reservations
 async function fetchReservations() {
-  // TODO: MODULE_RESERVATIONS
+  // RESERVATIONS
   // 1. Fetch Reservations by invoking the REST API and return them
   const url = config.backendEndpoint+'/reservations/';
   try {
   var response = await fetch(url);
   // console.log(response);
-  
-  return await response.json(); 
+
+  return await response.json();
   }catch(err) {
     return null;
   }
@@ -36,7 +36,7 @@ for(var i = 0 ; i<reservations.length ; i++){
 
   var d = new Date(reservations[i].date);
   var t = new Date(reservations[i].time);
-  var time = t.toLocaleString("en-IN", 
+  var time = t.toLocaleString("en-IN",
     {
       year:"numeric",
       month:"long",
@@ -63,7 +63,7 @@ for(var i = 0 ; i<reservations.length ; i++){
   a1.innerHTML = reservations[i].id;
   cell1.appendChild(a1);
   cell1.href = config.backendEndpoint + "/detail/?adventure=" + reservations[i].adventure;
- 
+
   cell2.innerHTML = reservations[i].name;
   cell3.innerHTML = reservations[i].adventureName;
   cell4.innerHTML = reservations[i].person;
@@ -77,14 +77,14 @@ for(var i = 0 ; i<reservations.length ; i++){
    button.addEventListener("click", function(){
     window.location = URL;
   });
-  
+
   cell8.appendChild(button);
 }
-  
+
   document.getElementById("reservation-table-parent").style.display = "block";
   document.getElementById("no-reservation-banner").style.display = "none";
-  } 
-  
+  }
+
   else{
     document.getElementById("reservation-table-parent").style.display = "none";
     document.getElementById("no-reservation-banner").style.display = "block";
